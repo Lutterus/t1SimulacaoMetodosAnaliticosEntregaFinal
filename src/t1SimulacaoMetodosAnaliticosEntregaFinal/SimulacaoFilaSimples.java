@@ -78,8 +78,11 @@ public class SimulacaoFilaSimples {
 						}
 						// se for uma saida
 					} else {
+						// se for uma saida por f2
 						if (evento.getEntrada().contentEquals("f2")) {
 							sa2();
+
+							// se for uma saida por f3
 						} else {
 							sa3();
 						}
@@ -396,15 +399,12 @@ public class SimulacaoFilaSimples {
 			double random = aleatorios.getMudancaDeBase(probabilidade, fila3.getAtendimentoMIN(),
 					fila3.getAtendimentoMAX());
 
-			if (probabilidade < 0.5) {
+			if (probabilidade < 0.7) {
 				// agenda uma transferencia para fila 2
-				escalonador.agendaTransferencia(random, fila3.getTempoGlobal(), "f2", "f3");
-			} else if (probabilidade < 0.8) {
-				// agenda uma transferencia para fila 1
-				escalonador.agendaTransferencia(random, fila3.getTempoGlobal(), "f2", "f1");
+				escalonador.agendaTransferencia(random, fila3.getTempoGlobal(), "f3", "f2");
 			} else {
 				// agenda saida
-				escalonador.agendaSaida(random, fila3.getTempoGlobal(), "f2", null);
+				escalonador.agendaSaida(random, fila3.getTempoGlobal(), "f3", null);
 			}
 
 		}
@@ -458,15 +458,12 @@ public class SimulacaoFilaSimples {
 			double random = aleatorios.getMudancaDeBase(probabilidade, fila3.getAtendimentoMIN(),
 					fila3.getAtendimentoMAX());
 
-			if (probabilidade < 0.5) {
+			if (probabilidade < 0.7) {
 				// agenda uma transferencia para fila 2
-				escalonador.agendaTransferencia(random, fila3.getTempoGlobal(), "f2", "f3");
-			} else if (probabilidade < 0.8) {
-				// agenda uma transferencia para fila 1
-				escalonador.agendaTransferencia(random, fila3.getTempoGlobal(), "f2", "f1");
+				escalonador.agendaTransferencia(random, fila3.getTempoGlobal(), "f3", "f2");
 			} else {
 				// agenda saida
-				escalonador.agendaSaida(random, fila3.getTempoGlobal(), "f2", null);
+				escalonador.agendaSaida(random, fila3.getTempoGlobal(), "f3", null);
 			}
 
 		}
@@ -603,7 +600,7 @@ public class SimulacaoFilaSimples {
 		fila1.resultadoFinal();
 		System.out.println("----------------RESULTADO FINAL DA FILA 2----------------");
 		fila2.resultadoFinal();
-		System.out.println("----------------RESULTADO FINAL DA FILA 2----------------");
+		System.out.println("----------------RESULTADO FINAL DA FILA 3----------------");
 		fila3.resultadoFinal();
 	}
 }

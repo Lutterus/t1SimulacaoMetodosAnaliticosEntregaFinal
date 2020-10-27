@@ -15,7 +15,7 @@ public class NumerosPseudoAleatorios {
 	public double getNumeroEntre0e1() {
 		consumeAleatorio();
 		double paraRetornar = gerador.nextDouble();
-		if(paraRetornar<0) {
+		if (paraRetornar < 0) {
 			System.out.println("deu merdaaaaa");
 		}
 		return paraRetornar;
@@ -30,7 +30,7 @@ public class NumerosPseudoAleatorios {
 		paraRetornar = paraRetornar * aleatorioGerado;
 		// U(A,B) = (B-A) x U(0,1) + A
 		paraRetornar = paraRetornar + A;
-		if(paraRetornar<0) {
+		if (paraRetornar < 0) {
 			System.out.println("deu merdaaaaa");
 		}
 		return paraRetornar;

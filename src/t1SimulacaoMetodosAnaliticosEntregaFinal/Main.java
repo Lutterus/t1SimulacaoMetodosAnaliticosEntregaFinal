@@ -12,7 +12,7 @@ public class Main {
 
 		// tempo total de simulacao - total o numero de aleatorios
 		int totalAleatorios = 100000;
-		//int totalAleatorios = 1000;
+		// int totalAleatorios = 1000;
 
 		NumerosPseudoAleatorios aleatorios = new NumerosPseudoAleatorios(totalAleatorios);
 
@@ -23,7 +23,7 @@ public class Main {
 		int numeroDeServidores = 1;
 
 		// capacidade da fila
-		int capacidadeDaFila =7;
+		int capacidadeDaFila = 7;
 
 		// Intervalo de tempo para a chegada de clientes na fila;
 		double intervaloDeChegadaMIN = 1;
@@ -76,25 +76,6 @@ public class Main {
 				intervaloDeAtendimentoMIN, intervaloDeAtendimentoMAX, intervaloDeChegadaMIN, intervaloDeChegadaMAX);
 
 		// ------------------------------------------------------------------------
-
-		System.out.println("-------------------");
-		
-		// probabilidades de f1
-		double f1ParaF2 = 0.8;
-		double f1ParaF3 = 0.2;
-
-		// probabilidades de f2
-		double f2ParaF1 = 0.3;
-		double f2ParaF3 = 0.5;
-		double f3ParaSaida = 0.2;
-
-		// probabilidades de f3
-		double f3ParaF2 = 0.7;
-		double f3ParaFSaida = 0.3;
-
-		
-		System.out.println("probabilidades de roteamento:");
-		System.out.println("fila 1 para fila 2: ");
 
 		System.out.println("-------------------");
 		System.out.println("INICIO DA EXECUCAO: ");
