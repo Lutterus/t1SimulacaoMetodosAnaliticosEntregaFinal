@@ -4,15 +4,10 @@ import java.util.ArrayList;
 
 public class Escalonador {
 
-	private NumerosPseudoAleatorios numerosPseudoAleatorios;
 	private ArrayList<Evento> eventos;
-	private FilaSimples filaSimples;
 
 	public Escalonador(FilaSimples filaSimples) {
 		eventos = new ArrayList<Evento>();
-		// implementação do gerador de numeros pseudo-aleatorios
-		numerosPseudoAleatorios = new NumerosPseudoAleatorios();
-		this.filaSimples = filaSimples;
 	}
 
 	public void add(Evento evento) {
@@ -52,51 +47,32 @@ public class Escalonador {
 		}
 	}
 
-	void agendaSaida(int min, int max, double tempoGlobal) {
-		// consome um aleatorio do numero limite
-		filaSimples.setAleatorios();
-		// geracao de um numero aleatorio
-		double numero = numerosPseudoAleatorios.getNumero();
-		// geracao de um numero dentro do intervalo
-		double mudancaDeBase = numerosPseudoAleatorios.getMudancaDeBase(numero, min, max);
+	void agendaSaida(double random, double tempoGlobal, String entrada, String saida) {
 		// soma dos valores para saber quando ocorrera
-		double tempoDoEvento = mudancaDeBase;
+		double tempoDoEvento = random;
 		// tempo em que o evento ira ocorrer
 		double tempoEfetivo = tempoDoEvento + tempoGlobal;
 		// guarda o valor
-		eventos.add(new Evento("SAIDA", tempoDoEvento, tempoEfetivo));
+		eventos.add(new Evento("SAIDA", entrada, saida, tempoDoEvento, tempoEfetivo));
 	}
 
-	public void agendaChegada(int min, int max, double tempoGlobal) {
-		// consome um aleatorio do numero limite
-		filaSimples.setAleatorios();
-		// geracao de um numero aleatorio
-		double numero = numerosPseudoAleatorios.getNumero();
-		// geracao de um numero dentro do intervalo
-		double mudancaDeBase = numerosPseudoAleatorios.getMudancaDeBase(numero, min, max);
+	public void agendaChegada(double random, double tempoGlobal, String entrada, String saida) {
 		// soma dos valores para saber quando ocorrera
-		double tempoDoEvento = mudancaDeBase;
+		double tempoDoEvento = random;
 		// tempo em que o evento ira ocorrer
 		double tempoEfetivo = tempoDoEvento + tempoGlobal;
 		// guarda o valor
-		eventos.add(new Evento("CHEGADA", tempoDoEvento, tempoEfetivo));
+		eventos.add(new Evento("CHEGADA", entrada, saida, tempoDoEvento, tempoEfetivo));
 	}
 
-	public void agendaTransferencia(int atendimentoMIN, int atendimentoMAX, double tempoGlobal) {
-		// consome um aleatorio do numero limite
-		filaSimples.setAleatorios();
-		// geracao de um numero aleatorio
-		double numero = numerosPseudoAleatorios.getNumero();
-		// geracao de um numero dentro do intervalo
-		double mudancaDeBase = numerosPseudoAleatorios.getMudancaDeBase(numero, atendimentoMIN, atendimentoMAX);
+	public void agendaTransferencia(double random, double tempoGlobal, String entrada, String saida) {
 		// soma dos valores para saber quando ocorrera
-		double tempoDoEvento = mudancaDeBase;
+		double tempoDoEvento = random;
 		// tempo em que o evento ira ocorrer
 		double tempoEfetivo = tempoDoEvento + tempoGlobal;
 		// guarda o valor
-		eventos.add(new Evento("TRANSFERENCIA", tempoDoEvento, tempoEfetivo));
+		eventos.add(new Evento("TRANSFERENCIA", entrada, saida, tempoDoEvento, tempoEfetivo));
 
 	}
 
 }
-

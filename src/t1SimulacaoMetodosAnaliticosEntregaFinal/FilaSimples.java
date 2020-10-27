@@ -4,9 +4,6 @@ public class FilaSimples {
 	// resultado final deve ser obtivo a partir do resoltado de quntas iteracoes
 	private int media;
 
-	// limite de aleatorios
-	private Aleatorios aleatorios;
-
 	// Tempo para primeiro cliente
 	private double primeiroCliente;
 
@@ -17,12 +14,12 @@ public class FilaSimples {
 	private int capacidadeDaFila;
 
 	// Intervalo de tempo de atendimento de um cliente na fila;
-	private int intervaloDeAtendimentoMIN;
-	private int intervaloDeAtendimentoMAX;
+	private double intervaloDeAtendimentoMIN;
+	private double intervaloDeAtendimentoMAX;
 
 	// Intervalo de tempo para a chegada de clientes na fila;
-	private int intervaloDeChegadaMIN;
-	private int intervaloDeChegadaMAX;
+	private double intervaloDeChegadaMIN;
+	private double intervaloDeChegadaMAX;
 
 	// tempo global atual
 	private double tempoGlobalAtual;
@@ -45,28 +42,23 @@ public class FilaSimples {
 	// numero de clientes que nao couberam na fila
 	private int clientesPerdidosFinal = 0;
 
-	public FilaSimples(int media, Aleatorios aleatorios, double primeiroCliente, int numeroDeServidores,
-			int capacidadeDaFila, int intervaloDeAtendimentoMIN, int intervaloDeAtendimentoMAX,
-			int intervaloDeChegadaMIN, int intervaloDeChegadaMAX) {
+	public FilaSimples(int media, double primeiroCliente, int numeroDeServidores, int capacidadeDaFila,
+			double intervaloDeAtendimentoMIN2, double intervaloDeAtendimentoMAX2, double intervaloDeChegadaMIN2,
+			double intervaloDeChegadaMAX2) {
 		this.media = media;
-		this.aleatorios = aleatorios;
 		this.primeiroCliente = primeiroCliente;
 		this.numeroDeServidores = numeroDeServidores;
 		this.capacidadeDaFila = capacidadeDaFila;
-		this.intervaloDeAtendimentoMIN = intervaloDeAtendimentoMIN;
-		this.intervaloDeAtendimentoMAX = intervaloDeAtendimentoMAX;
-		this.intervaloDeChegadaMIN = intervaloDeChegadaMIN;
-		this.intervaloDeChegadaMAX = intervaloDeChegadaMAX;
+		this.intervaloDeAtendimentoMIN = intervaloDeAtendimentoMIN2;
+		this.intervaloDeAtendimentoMAX = intervaloDeAtendimentoMAX2;
+		this.intervaloDeChegadaMIN = intervaloDeChegadaMIN2;
+		this.intervaloDeChegadaMAX = intervaloDeChegadaMAX2;
 		this.vetorFila = new double[capacidadeDaFila + 1];
 		this.vetorFinal = new double[capacidadeDaFila + 1];
 	}
 
 	public int getMedia() {
 		return media;
-	}
-
-	public int getAleatorios() {
-		return aleatorios.getNumAleatorios();
 	}
 
 	public void setPonteiro(int valor) {
@@ -86,11 +78,11 @@ public class FilaSimples {
 		return numeroDeServidores;
 	}
 
-	public int getAtendimentoMIN() {
+	public double getAtendimentoMIN() {
 		return intervaloDeAtendimentoMIN;
 	}
 
-	public int getAtendimentoMAX() {
+	public double getAtendimentoMAX() {
 		return intervaloDeAtendimentoMAX;
 	}
 
@@ -98,18 +90,14 @@ public class FilaSimples {
 		return tempoGlobalAtual;
 	}
 
-	public void setAleatorios() {
-		aleatorios.updateAleatorios();
-	}
-
-	public int getChegadaMIN() {
+	public double getChegadaMIN() {
 		return intervaloDeChegadaMIN;
 	}
 
-	public int getChegadaMAX() {
+	public double getChegadaMAX() {
 		return intervaloDeChegadaMAX;
 	}
-	
+
 	public boolean haEspaco() {
 		if (ponteiroDaFila < capacidadeDaFila) {
 			return true;
@@ -125,7 +113,7 @@ public class FilaSimples {
 			return false;
 		}
 	}
-	
+
 	public boolean podeTransferir() {
 		if (ponteiroDaFila >= numeroDeServidores) {
 			return true;
